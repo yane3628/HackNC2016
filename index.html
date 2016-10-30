@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Rocky, your pet rock!</title>
 
         <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.1/esri/css/main.css">
@@ -15,42 +14,91 @@
 				/*background-position: center center;*/
 				background-repeat: no-repeat;
             }
-
             #rock {
                 position: absolute;
                 left: 100px;
+                right: 0px;
                 top: 60px;
+                bottom: auto;
             }
         </style>
 
-        <script>
+        <script type="text/javascript">
 
-        </script>
+                function leftArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.left = parseInt(element.style.left) - 5 + 'px';
+                }
+
+                function rightArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.left = parseInt(element.style.left) + 5 + 'px';
+
+                }
+
+                function upArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.top = parseInt(element.style.top) - 5 + 'px';
+                }
+
+                function downArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.top = parseInt(element.style.top) + 5 + 'px';
+                }
+
+                function moveSelection(evt) {
+                    switch (evt.keyCode) {
+                        case 37:
+                        leftArrowPressed();
+                        break;
+                        case 39:
+                        rightArrowPressed();
+                        break;
+                        case 38:
+                        upArrowPressed();
+                        break;
+                        case 40:
+                        downArrowPressed();
+                        break;
+                        }
+                    };
+
+            function docReady()
+            {
+
+              window.addEventListener('keydown', moveSelection);
+            }
+
+      </script>
     </head>
 
     <body>
-        <div style="position:relative">
+        <!-- <div style="position:relative"> -->
             <!-- <img src="http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg" style="position:absolute;"/> -->
-			
+
 			<!-- place where Rocky & objects are rendered -->
-			<div id="activearea" style="position: relative;">
-				<!--<img src="http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg"/>-->		
-				<img id="rock" src="http://www.pngall.com/wp-content/uploads/2016/06/Rock-PNG.png"/>
-			</div>
-			
+			<!-- <div id="activearea" style="position: relative;"> -->
+				<!--<img src="http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg"/>-->
+				<!-- <img id="rock" src="http://www.pngall.com/wp-content/uploads/2016/06/Rock-PNG.png"/> -->
+			<!-- </div> -->
+
 			<!-- Area where you can customize your pet rock! -->
-			<div id="controls" style="position: absolute; top: 550px; left: 25px;">
-				<div id="backgrounds" style="position: absolute; left: 0px;">
-					<h3>Backgrounds</h3>
-				</div>
-				<div id="accessories" style="position: absolute; left: 250px;">
-					<h3>Accessories</h3>
-				</div>
-				<div id="misc" style="position: absolute; left: 500px;">
-					<h3>Miscellaneous</h3>
-				</div>
-			</div>
-        </div>
+			<!-- <div id="controls" style="position: absolute; top: 550px; left: 25px;"> -->
+				<!-- <div id="backgrounds" style="position: absolute; left: 0px;"> -->
+					<!-- <h3>Backgrounds</h3> -->
+				<!-- </div> -->
+				<!-- <div id="accessories" style="position: absolute; left: 250px;"> -->
+					<!-- <h3>Accessories</h3> -->
+				<!-- </div> -->
+				<!-- <div id="misc" style="position: absolute; left: 500px;"> -->
+					<!-- <h3>Miscellaneous</h3> -->
+				<!-- </div> -->
+			<!-- </div> -->
+        <!-- </div> -->
+        <body onload="docReady()" onkeydown="" onkeyup="">
+
+            <img id="image1" src="http://www.pngall.com/wp-content/uploads/2016/06/Rock-PNG.png" style="position:absolute;left:0; top:0;">
+        </body>
 
     </body>
 </html>
