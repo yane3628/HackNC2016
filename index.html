@@ -18,18 +18,18 @@
             #wrapper{
 				position: relative;
 			}
-			
+
 			#content{
 				position:relative;
 				z-index: 100;
 			}
-			
+
 			#rockarea{
 				position: relative;
 				left: 100px;
-				top: 100px;		
+				top: 100px;
 			}
-			
+
 			#playground{
 				height: 550px;
 				width: 1000px;
@@ -41,9 +41,9 @@
 				left: 0;
 				z-index: -100;
 			}
-			
+
 			#raingif{
-				z-index: 100; 
+				z-index: 100;
 
 				background: url("https://67.media.tumblr.com/d01e3095937a89de0f0d1b13e3dc9cd6/tumblr_ml8w56PjL31qm1b5xo1_400.gif");
 				height: 550px;
@@ -55,7 +55,6 @@
 				background-repeat: repeat;
 				visibility: hidden;
 			}
-			
         </style>
 
         <script type="text/javascript">
@@ -63,22 +62,25 @@
                 function leftArrowPressed() {
                 var element = document.getElementById("image1");
                 element.style.left = parseInt(element.style.left) - 5 + 'px';
+                document.getElementById("accessory").style.left = parseInt(element.style.left) - 5 + 'px';
                 }
 
                 function rightArrowPressed() {
                 var element = document.getElementById("image1");
                 element.style.left = parseInt(element.style.left) + 5 + 'px';
-
+                document.getElementById("accessory").style.left = parseInt(element.style.left) + 5 + 'px';
                 }
 
                 function upArrowPressed() {
                 var element = document.getElementById("image1");
                 element.style.top = parseInt(element.style.top) - 5 + 'px';
+                document.getElementById("accessory").style.top = parseInt(element.style.top) - 5 + 'px';
                 }
 
                 function downArrowPressed() {
                 var element = document.getElementById("image1");
                 element.style.top = parseInt(element.style.top) + 5 + 'px';
+                document.getElementById("accessory").style.top = parseInt(element.style.top) + 5 + 'px';
                 }
 
 				function selected(dis)
@@ -86,7 +88,6 @@
 					var ele= document.getElementById('set');
 					if(dis.value =='grass')
 					{
-						console.log("grasssss");
 					 document.getElementById("playground").style.background = "url('http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg')";
 					}
 					else if(dis.value == 'lava')
@@ -96,13 +97,13 @@
 					else if (dis.value == 'city')
 					{
 					document.getElementById("playground").style.background = "url('http://www.100resilientcities.org/page/-/100rc/img/cities/cities-nyc_optimized.jpg')";
-					
+
 					}
-					else    
+					else
 					{
-					 //ele.innerHTML ="Correct";   
+					 //ele.innerHTML ="Correct";
 					}
-					
+
 					if (dis.value == 'rain')
 					{
 						if (dis.checked)
@@ -117,7 +118,28 @@
 						}
 					}
 				}
-				
+
+                function accessories(dis)
+                {
+                    var ele= document.getElementById('set');
+                    if(dis.value =='eyes')
+                    {
+                        if (dis.checked)
+                        {
+                            document.getElementById("accessory").src = "https://d30y9cdsu7xlg0.cloudfront.net/png/93540-200.png";
+
+                        }
+                        else {
+                            document.getElementById("accessory").src = "";
+
+                        }
+                    }
+                    else
+                    {
+                     ele.innerHTML ="Correct";
+                    }
+                }
+
                 function moveSelection(evt) {
                     switch (evt.keyCode) {
                         case 37:
@@ -145,13 +167,14 @@
     </head>
 
 	<body onload="docReady()" onkeydown="" onkeyup="">
-	
+
 		<div id="playground">
 			<div id="raingif">
 			</div>
+            <img id="accessory" src="" style="position:absolute;left:0; top:0; z-index= 90">
 			<img id="image1" src="http://www.pngall.com/wp-content/uploads/2016/06/Rock-PNG.png" style="position:absolute;left:0; top:0; z-index: -100;">
 		</div>
-		
+
 			<!-- Area where you can customize your pet rock! -->
 		<div id="controls" style="position: absolute; top: 550px; left: 25px;">
 			<div id="backgrounds" style="position: absolute; left: 0px;">
@@ -165,6 +188,8 @@
 			</div>
 			<div id="accessories" style="position: absolute; left: 250px;">
 				<h3>Accessories</h3>
+                <input type="checkbox" id="eyesradio" name="bgs"
+					value="eyes" onclick="accessories(this)">Eyes</br>
 			</div>
 			<div id="misc" style="position: absolute; left: 500px;">
 				<h3>Miscellaneous</h3>
@@ -173,9 +198,9 @@
 			</div>
 		</div>
 
-	
+
 	</body>
 
-		
+
 
 </html>

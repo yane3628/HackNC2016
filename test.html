@@ -1,37 +1,60 @@
 <html>
-<head>
-  <meta charset=utf-8 />
-  <title>Esri Leaflet Starter App</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Test Move Object</title>
 
-  <!-- Load Leaflet from CDN-->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet-src.js"></script>
+    <script type="text/javascript">
 
-  <!-- Load Esri Leaflet from CDN -->
-  <script src="https://unpkg.com/esri-leaflet@2.0.4"></script>
+            function leftArrowPressed() {
+            var element = document.getElementById("image1");
+            element.style.left = parseInt(element.style.left) - 5 + 'px';
+            }
 
-  <script src="https://unpkg.com/esri-leaflet-renderers@2.0.2"></script>
+            function rightArrowPressed() {
+            var element = document.getElementById("image1");
+            element.style.left = parseInt(element.style.left) + 5 + 'px';
 
-  <style>
-    body {margin:0;padding:0;}
-    #mapDiv {position: absolute;top:0;bottom:0;right:0;left:0;}
-  </style>
-</head>
-<body>
+            }
 
-  <div id="mapDiv"></div>
+            function upArrowPressed() {
+            var element = document.getElementById("image1");
+            element.style.top = parseInt(element.style.top) - 5 + 'px';
+            }
 
-  <script type='text/javascript'>
-    var map = L.map('mapDiv')
-    map.setView([45.533, -122.657], 12);
-    L.esri.basemapLayer('DarkGray').addTo(map);
+            function downArrowPressed() {
+            var element = document.getElementById("image1");
+            element.style.top = parseInt(element.style.top) + 5 + 'px';
+            }
 
-    // ADD the rail lines here
-    L.esri.featureLayer({
-       url: 'https://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/PDX_Rail_Lines_Styled/FeatureServer/0'
-    }).addTo(map);
+            function moveSelection(evt) {
+                switch (evt.keyCode) {
+                    case 37:
+                    leftArrowPressed();
+                    break;
+                    case 39:
+                    rightArrowPressed();
+                    break;
+                    case 38:
+                    upArrowPressed();
+                    break;
+                    case 40:
+                    downArrowPressed();
+                    break;
+                    }
+                };
+
+        function docReady()
+        {
+
+          window.addEventListener('keydown', moveSelection);
+        }
+
   </script>
+  </head>
 
-</body>
+  <body onload="docReady()" onkeydown="" onkeyup="" bgcolor='yellow'>
+   Test
+  <img id="image1" src="http://placekitten.com/69/69" style="position:absolute;left:0; top:0;" height="15" width="15">
+  </body>
+   end html
 </html>
