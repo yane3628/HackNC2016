@@ -10,7 +10,10 @@
 
         <style>
             body {
-                background: "http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg"
+                background: url("http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg");
+				background-size: cover;
+				/*background-position: center center;*/
+				background-repeat: no-repeat;
             }
 
             #rock {
@@ -31,20 +34,20 @@
 			
 			<!-- place where Rocky & objects are rendered -->
 			<div id="activearea" style="position: relative;">
-				<img src="http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg"/>				
+				<!--<img src="http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg"/>-->		
 				<img id="rock" src="http://www.pngall.com/wp-content/uploads/2016/06/Rock-PNG.png"/>
 			</div>
 			
 			<!-- Area where you can customize your pet rock! -->
-			<div id="controls" style="position: absolute; top: 500px;">
-				<div id="backgrounds" style="position: absolute; left: 200px;">
-					Backgrounds
+			<div id="controls" style="position: absolute; top: 550px; left: 25px;">
+				<div id="backgrounds" style="position: absolute; left: 0px;">
+					<h3>Backgrounds</h3>
 				</div>
-				<div id="accessories" style="position: absolute; left: 100px;">
-					Accessories
+				<div id="accessories" style="position: absolute; left: 250px;">
+					<h3>Accessories</h3>
 				</div>
-				<div id="misc" style="position: absolute;">
-					Miscellaneous
+				<div id="misc" style="position: absolute; left: 500px;">
+					<h3>Miscellaneous</h3>
 				</div>
 			</div>
         </div>
