@@ -42,6 +42,20 @@
 				z-index: -100;
 			}
 			
+			#raingif{
+				z-index: 100; 
+
+				background: url("https://67.media.tumblr.com/d01e3095937a89de0f0d1b13e3dc9cd6/tumblr_ml8w56PjL31qm1b5xo1_400.gif");
+				height: 550px;
+				width: 1000px;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				background-size: cover;
+				background-repeat: repeat;
+				visibility: hidden;
+			}
+			
         </style>
 
         <script type="text/javascript">
@@ -86,7 +100,21 @@
 					}
 					else    
 					{
-					 ele.innerHTML ="Correct";   
+					 //ele.innerHTML ="Correct";   
+					}
+					
+					if (dis.value == 'rain')
+					{
+						if (dis.checked)
+						{
+							document.getElementById("raingif").style.visibility='visible';
+							document.getElementById("raingif").style.width='1000px';
+							document.getElementById("raingif").style.height='500px';
+						}
+						else
+						{
+							document.getElementById("raingif").style.visibility='hidden';
+						}
 					}
 				}
 				
@@ -119,8 +147,9 @@
 	<body onload="docReady()" onkeydown="" onkeyup="">
 	
 		<div id="playground">
-
-			<img id="image1" src="http://www.pngall.com/wp-content/uploads/2016/06/Rock-PNG.png" style="position:absolute;left:0; top:0;">
+			<div id="raingif">
+			</div>
+			<img id="image1" src="http://www.pngall.com/wp-content/uploads/2016/06/Rock-PNG.png" style="position:absolute;left:0; top:0; z-index: -100;">
 		</div>
 		
 			<!-- Area where you can customize your pet rock! -->
@@ -139,6 +168,8 @@
 			</div>
 			<div id="misc" style="position: absolute; left: 500px;">
 				<h3>Miscellaneous</h3>
+				<input type="checkbox" id="raincheck" name="msc"
+					value="rain" onclick="selected(this)">Rain</br>
 			</div>
 		</div>
 
