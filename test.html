@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>Esri Leaflet Starter App</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <!-- Load Leaflet from CDN-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet-src.js"></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.0.4"></script>
+
+  <script src="https://unpkg.com/esri-leaflet-renderers@2.0.2"></script>
+
+  <style>
+    body {margin:0;padding:0;}
+    #mapDiv {position: absolute;top:0;bottom:0;right:0;left:0;}
+  </style>
+</head>
+<body>
+
+  <div id="mapDiv"></div>
+
+  <script type='text/javascript'>
+    var map = L.map('mapDiv')
+    map.setView([45.533, -122.657], 12);
+    L.esri.basemapLayer('DarkGray').addTo(map);
+
+    // ADD the rail lines here
+    L.esri.featureLayer({
+       url: 'https://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/PDX_Rail_Lines_Styled/FeatureServer/0'
+    }).addTo(map);
+  </script>
+
+</body>
+</html>

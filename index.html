@@ -3,60 +3,33 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Get started with MapView - Create a 2D map</title>
+        <title>Rocky, your pet rock!</title>
 
-        <link rel="stylesheet" href="https://js.arcgis.com/4.1/esri/css/main.css">
-        <script src="https://js.arcgis.com/4.1/"></script>
-
-        <script>
-            require([
-                "esri/Map",
-                "esri/views/SceneView",
-                "esri/layers/TileLayer",
-                "dojo/domReady!"
-            ], function(Map, SceneView, TileLayer) {
-                // Code to create the map and view will go here
-                var map = new Map({
-                    basemap: "oceans",
-                    // layers: [housingLyr]
-                });
-
-                var view = new SceneView({
-                    container: "viewDiv",
-                    map: map
-                });
-
-                var transportationLyr = new TileLayer({
-                    url: "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer",
-                    id: "streets",
-                    opacity: 0.7
-                });
-
-                var housingLyr = new TileLayer({
-                    url: "https://tiles.arcgis.com/tiles/nGt4QxSblgDfeJn9/arcgis/rest/services/New_York_Housing_Density/MapServer",
-                    id: "ny-housing"
-                });
-
-                map.layers.add(transportationLyr);
-                map.layers.add(housingLyr);
-
-            });
-        </script>
+        <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.1/esri/css/main.css">
+        <script src="https://js.arcgis.com/4.1/"></script> -->
 
         <style>
-            html, body, #viewDiv {
-                padding: 0;
-                margin: 0;
-                height: 100%;
-                width: 100%;
+            body {
+                background: "http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg"
+            }
+
+            #rock {
+                position: absolute;
+                left: 100px;
+                top: 60px;
             }
         </style>
+
+        <script>
+
+        </script>
     </head>
 
     <body>
-        <div id="viewDiv"></div>
-        <span id="layerToggle">
-            <input type="checkbox" id="streetLyr"> Transportation
-        </span>
+        <div style="position:relative">
+            <!-- <img src="http://4.bp.blogspot.com/_0xG7eCXnC78/TA_ow2P3m4I/AAAAAAAADIA/FO8KJ6eeShI/s1600/IMGP8783.jpg" style="position:absolute;"/> -->
+            <img id="rock" src="http://www.pngall.com/wp-content/uploads/2016/06/Rock-PNG.png"/>
+        </div>
+
     </body>
 </html>
